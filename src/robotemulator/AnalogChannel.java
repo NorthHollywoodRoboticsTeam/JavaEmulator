@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package robotemulator;
 
 import javax.swing.JPanel;
@@ -15,6 +11,23 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import javax.swing.JFrame;
 
+/*
+ *  This file is part of frcjcss.
+ *
+ *  frcjcss is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  frcjcss is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with frcjcss.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 
 /**
  *
@@ -26,9 +39,8 @@ public class AnalogChannel {
     private final int JSHEIGHT = 500;//joy stick area height
     private final int JSWIDTH = 500;//joy stick area width
 
-    private double x, y, z;//-1 to 1
+    private double x, y;//-1 to 1
     private int xpos, ypos;
-    private double xOffset, yOffset;
 
     private boolean mouseClicked = false;
     
@@ -53,7 +65,12 @@ public class AnalogChannel {
     }
     
     class Grid extends JPanel implements MouseListener, MouseMotionListener {
-        Grid() {
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = -8277537723570780412L;
+		
+		Grid() {
             addMouseListener(this);
             addMouseMotionListener(this);
             
@@ -81,6 +98,8 @@ public class AnalogChannel {
             g.drawOval(100, 100, 300, 300);
             
             drawBox(xpos, ypos, g);
+            
+            voltage = aangle;
         }
         
         public void drawBox(int x, int y, Graphics g) {
