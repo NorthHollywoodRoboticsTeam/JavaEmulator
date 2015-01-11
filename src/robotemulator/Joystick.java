@@ -47,7 +47,7 @@ public class Joystick implements KeyListener {
     private final int JSHEIGHT = 500;//joy stick area height
     private final int JSWIDTH = 500;//joy stick area width
 
-    private double x, y, z;//-1 to 1
+    private double x, y, z, twist;//-1 to 1
     private int xpos, ypos, zpos;//pixel position. z is 0-460.
     private double xOffset, yOffset;
     private double drift;
@@ -113,6 +113,14 @@ public class Joystick implements KeyListener {
         return z;
     }
     
+    /**
+     * The Twist value of the Joystick.
+     * @return The Twist value of the Joystick, ranges from -1.0 to +1.0.
+     */
+    public double getTwist() {
+        return 0;
+    }
+    
     public double getRawAxis(int axis) {
         switch (axis) {
             case 1: return getX();
@@ -139,6 +147,11 @@ public class Joystick implements KeyListener {
     }
     
     public void keyPressed(KeyEvent e) {
+    	if (e.getKeyCode() == KeyEvent.VK_G) {
+    		twist += twist <= .9 ? .1 : 0;
+    	} else if (e.getKeyCode() == KeyEvent.VK_H) {
+    		twist -= twist >= -.9 ? .1 : 0;
+    	}
         int key = (int)e.getKeyChar()-48;
         if (key >= 0 && key <= 9) {
         	if(key == 0) {
