@@ -50,8 +50,8 @@ public class Talon implements ComponentListener, ActionListener {
      * Creates a new Talon speed controller.
      * @param channel The Digital Sidecar channel it should be connected to.
      */
-    public Talon(int module, int channel) {
-        frame = new JFrame("Talon Emulator: (" + module + ", " + channel +")");
+    public Talon(int channel) {
+        frame = new JFrame("Talon Emulator: " + channel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //frame.setResizable(false);
         frame.setLocation(510, 0);

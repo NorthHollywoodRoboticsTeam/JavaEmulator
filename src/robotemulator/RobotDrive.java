@@ -95,7 +95,10 @@ public class RobotDrive {
     }   
     
     public void mecanumDrive_Cartesian(double x, double y, double rotation, double gyroAngle) {
-        
+        jag1.set(x);
+        jag2.set(y);
+        jag3.set(rotation);
+        jag4.set(gyroAngle);
     }
     
     public void mecanumDrive_Polar(double magnitude, double direction, double rotation) {
