@@ -118,7 +118,7 @@ public class Joystick implements KeyListener {
      * @return The Twist value of the Joystick, ranges from -1.0 to +1.0.
      */
     public double getTwist() {
-        return 0;
+        return twist;
     }
     
     public double getRawAxis(int axis) {
